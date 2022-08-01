@@ -13,11 +13,38 @@ function addBook(title, author) {
   collections.push(book);
 }
 
-// [1,2,3,4,5,6,7,8,9,10]
-
 function removeBook(index) {
   collections.splice(index, 1);
 }
+
+function saveLocalBook(book) {
+  let collections;
+  if (localStorage.getItem('collections') === null) {
+    collections = [];
+  } else {
+    collections = JSON.parse(localStorage.getItem('collections'));
+  }
+  collections.push(book);
+  localStorage.setItem('collections', JSON.stringify(collections));
+}
+
+function removeLocalBook(index) {
+  const collections = JSON.parse(localStorage.getItem('collections'));
+  collections.splice(index, 1);
+  localStorage.setItem('collections', JSON.stringify(collections));
+}
+
+
+AddBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+  addBook(title, author);
+  saveLocalBook({ title, author });
+  bookTitle.value = '';
+  bookAuthor.value = '';
+  render();
+});
 
 function render() {
   bookContainer.innerHTML = '';
@@ -35,42 +62,11 @@ function render() {
     const deleteButton = bookElement.querySelector('.delete');
     deleteButton.addEventListener('click', () => {
       removeBook(index);
+      removeLocalBook(index);
       render();
     });
   });
 }
-
-function saveLocalBook(book) {
-  let collections;
-  if (localStorage.getItem('collections') === null) {
-    collections = [];
-  } else {
-    collections = JSON.parse(localStorage.getItem('collections'));
-  }
-  collections.push(book);
-  localStorage.setItem('collections', JSON.stringify(collections));
-}
-
-function removeLocalBook(book) {
-  let collections;
-  if (localStorage.getItem('collections') === null) {
-    collections = [];
-  } else {
-    collections = JSON.parse(localStorage.getItem('collections'));
-  }
-  console.log(book.children[0]);
-}
-
-AddBookForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = bookTitle.value;
-  const author = bookAuthor.value;
-  addBook(title, author);
-  saveLocalBook({ title, author });
-  bookTitle.value = '';
-  bookAuthor.value = '';
-  render();
-});
 
 function getBooks() {
   let collections;
@@ -93,6 +89,7 @@ function getBooks() {
     const deleteButton = bookElement.querySelector('.delete');
     deleteButton.addEventListener('click', () => {
       removeBook(index);
+      removeLocalBook(index);
       render();
     });
   });

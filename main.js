@@ -37,7 +37,6 @@ function removeBook(index) {
   render();
 }
 
-
 AddBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
 

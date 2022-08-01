@@ -12,7 +12,6 @@ function addBook(title, author) {
   collections.push(book);
 }
 
-
 // [1,2,3,4,5,6,7,8,9,10]
 
 function removeBook(index) {
@@ -37,7 +36,6 @@ function render() {
       removeBook(index);
       render();
     });
-
   });
 }
 
@@ -49,8 +47,7 @@ AddBookForm.addEventListener('submit', (e) => {
   bookTitle.value = '';
   bookAuthor.value = '';
   render();
-})
-
+});
 
 // const removeButton = document.querySelector('.delete');
 // removeButton.addEventListener('click', (e) => {

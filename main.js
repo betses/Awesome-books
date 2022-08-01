@@ -2,7 +2,7 @@ const collections = [];
 const bookContainer = document.querySelector('.book-container');
 const AddBookForm = document.querySelector('.book-form');
 
-document.addEventListener("DOMContentLoaded", getBooks);
+document.addEventListener('DOMContentLoaded', getBooks);
 const bookTitle = document.getElementById('title');
 const bookAuthor = document.getElementById('author');
 
@@ -40,17 +40,6 @@ function render() {
   });
 }
 
-AddBookForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const title = bookTitle.value;
-  const author = bookAuthor.value;
-  addBook(title, author);
-  saveLocalBook({ title, author });
-  bookTitle.value = '';
-  bookAuthor.value = '';
-  render();
-});
-
 function saveLocalBook(book) {
   let collections;
   if (localStorage.getItem('collections') === null) {
@@ -61,6 +50,27 @@ function saveLocalBook(book) {
   collections.push(book);
   localStorage.setItem('collections', JSON.stringify(collections));
 }
+
+function removeLocalBook(book) {
+  let collections;
+  if (localStorage.getItem('collections') === null) {
+    collections = [];
+  } else {
+    collections = JSON.parse(localStorage.getItem('collections'));
+  }
+  console.log(book.children[0]);
+}
+
+AddBookForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+  addBook(title, author);
+  saveLocalBook({ title, author });
+  bookTitle.value = '';
+  bookAuthor.value = '';
+  render();
+});
 
 function getBooks() {
   let collections;
@@ -85,6 +95,6 @@ function getBooks() {
       removeBook(index);
       render();
     });
-
   });
 }
+

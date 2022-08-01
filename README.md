@@ -1,22 +1,26 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/badge/AwesomeBooks-blue)
 
-# Portfolio
-Mobile version personal Portfolio page using css and html
+# AwesomeBooks
+
+
 
 ## Built With
 
 - HTML
-- CSS
+- JavaScript
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-  - none
+  - Install Node.js
+
+
 ### Setup
-    - clone the repository 
-    - run Index.html file
+- clone the repository  - `git clone https://github.com/betses/Awesome-books.git`
+- `cd into the directory`
+- run Index.html in the browser
 
 
 ## Authors
@@ -25,6 +29,11 @@ To get a local copy up and running follow these simple example steps.
 
 - GitHub: [@betses](https://github.com/betses)
 - Twitter: [@Betse_s](https://twitter.com/Betse_s)
+
+👤 **Author2**
+
+- GitHub: [@niicode](https://github.com/niicode)
+- Twitter: [@_niicode](https://twitter.com/_niicode)
 
 
 ## 🤝 Contributing

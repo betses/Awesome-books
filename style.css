@@ -72,7 +72,7 @@ nav {
   gap: 10px;
   width: 50%;
   /* padding: 20px; */
-  margin: 30px 0;
+  margin: 5% 0 5% 0;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -274,7 +274,7 @@ footer p {
     /* gap: 10px; */
     width: 91%;
     /* padding: 20px; */
-    margin: 30px 0;
+    margin: 5% 0 20% 0;
     border-radius: 10px;
     overflow: hidden;
   }

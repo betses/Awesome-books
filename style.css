@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-.section {
-  height: 84vh;
-}
-
 body {
   font-family: "Lato", sans-serif;
 }
@@ -201,11 +197,16 @@ footer {
   border: 1px solid black;
   color: white;
   background-color: #333;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
 
 }
 
 footer p {
-  margin: 10px 0 10px 25px;
+  margin: 5px 0 5px 25px;
+
 }
 
 #add-section {
